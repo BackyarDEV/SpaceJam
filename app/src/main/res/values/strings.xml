@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SpaceJam</string>
+    <string name="password">Password</string>
+    <string name="username">Name</string>
+    <string name="logo_png">Logo.png</string>
+    <string name="cd_logo">logo.png</string>
+    <string name="login">login</string>
+    <string name="email">Email Address</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_an_account_instead">Create an account instead</string>
+    <string name="mail">Email</string>
+    <string name="already">Already have an account? Sign In!</string>
+    <string name="nav_item1">Home</string>
+    <string name="nav_item2">Profile</string>
+    <string name="nav_item3">Discover</string>
+    <string name="nav_item4">Notifications</string>
+    <string name="nav_item5">Settings</string>
+    <string name="nav_item6">Logout</string>
+    <string name="name_tag">Your Name Probably</string>
+    <string name="profile_desc">Your profile description</string>
+    <string name="uname">Username</string>
+</resources>

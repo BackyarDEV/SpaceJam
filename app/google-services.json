@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "222049470734",
+    "firebase_url": "https://spacejam-1de2a.firebaseio.com",
+    "project_id": "spacejam-1de2a",
+    "storage_bucket": "spacejam-1de2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222049470734:android:dc28acd347ad7124",
+        "android_client_info": {
+          "package_name": "com.backyardev.spacejam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222049470734-1l4l6obeea5o5ppav942sklcfhgpjpba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.backyardev.spacejam",
+            "certificate_hash": "72024b0a9581fb6747ca00f185433617d5aa389c"
+          }
+        },
+        {
+          "client_id": "222049470734-9d9fjvhlpn71gp00ij8q977t0n0ie0cc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHLdf-PQqyLqdkkm-F2QZSu6E0LfujbGU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222049470734-9d9fjvhlpn71gp00ij8q977t0n0ie0cc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

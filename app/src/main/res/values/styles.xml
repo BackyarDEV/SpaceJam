@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Splash">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+    <style name="AppTheme.Auth">
+    <item name="android:windowBackground">@drawable/auth_bg_screen</item>
+    </style>
+
+
+    <style name="AppTheme.TextLabel" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+</resources>
