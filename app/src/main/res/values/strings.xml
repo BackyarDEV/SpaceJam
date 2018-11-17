@@ -8,9 +8,9 @@
     <string name="email">Email Address</string>
     <string name="register">Register</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="create_an_account_instead">Create an account instead</string>
+    <string name="create_an_account_instead">Sign up instead</string>
     <string name="mail">Email</string>
-    <string name="already">Already have an account? Sign In!</string>
+    <string name="already">Sign in instead</string>
     <string name="nav_item1">Home</string>
     <string name="nav_item2">Profile</string>
     <string name="nav_item3">Discover</string>
@@ -20,4 +20,7 @@
     <string name="name_tag">Your Name Probably</string>
     <string name="profile_desc">Your profile description</string>
     <string name="uname">Username</string>
+    <string name="cd_pro_pic">profile picture</string>
+    <string name="bottom_sheet_name">Your Name Probably</string>
+    <string name="bottom_sheet_email">Your Profile Desription</string>
 </resources>

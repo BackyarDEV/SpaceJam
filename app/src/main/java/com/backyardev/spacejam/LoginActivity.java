@@ -37,8 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     public FirebaseAuth mAuth;
     String mail, pass;
 
-    private static final String TAG = "LoginActivityTags";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -117,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
         assert user != null;
         if (user.isEmailVerified()) {
             finish();
-            Toast.makeText( LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT ).show();
             Log.d( "loginTest", "signInWithEmail:success" );
             Intent i = new Intent( LoginActivity.this, HomeActivity.class );
             startActivity( i );

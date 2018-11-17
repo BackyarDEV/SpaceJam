@@ -8,16 +8,14 @@
     android:theme="@style/AppTheme"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You haven't implemented this section yet!\nBe responsible for your job!!!"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/home_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+      <include layout="@layout/fragment_home"/>
+
+    </FrameLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/cordLayout"
@@ -32,8 +30,9 @@
             android:backgroundTint="@color/colorPrimary"
             android:foreground="@drawable/ripple"
             android:minHeight="45dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:fabAlignmentMode="center"
-            app:fabCradleRoundedCornerRadius="12dp"
+            app:fabCradleRoundedCornerRadius="16dp"
             app:hideOnScroll="true"
             app:navigationIcon="@drawable/ic_menu_white_24dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />

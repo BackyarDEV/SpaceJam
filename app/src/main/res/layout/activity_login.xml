@@ -15,10 +15,11 @@
         android:maxWidth="200dp"
         android:maxHeight="200dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@id/lowPanel"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".08"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,24 +80,26 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:theme="@style/AppTheme.MaterialButton"
+            app:cornerRadius="120dp"
             android:layout_margin="25dp"
-            android:background="@drawable/btn_bg"
+            android:textAllCaps="true"
             android:fontFamily="sans-serif"
-            android:foreground="@drawable/ripple"
             android:onClick="login"
             android:text="@string/login"
             android:textColor="@color/colorAccent"
+            app:rippleColor="@color/colorAccent"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userPassTIL"
             app:layout_constraintVertical_bias="0.05"
-
             />
 
         <TextView

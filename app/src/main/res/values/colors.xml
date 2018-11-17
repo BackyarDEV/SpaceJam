@@ -3,7 +3,10 @@
     <color name="colorPrimary">#000030</color>
     <color name="colorPrimaryDark">#000030</color>
     <color name="colorAccent">#ffffff</color>
+    <color name="white">#ffffff</color>
     <color name="black">#000</color>
     <color name="hint_color">#393939</color>
     <color name="unselected_text_color">#e0e0e0</color>
+    <color name="grey">#e0e0e0</color>
+
 </resources>

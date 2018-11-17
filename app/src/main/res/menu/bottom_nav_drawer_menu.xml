@@ -19,12 +19,13 @@
             android:title="@string/nav_item4" />
         <item
             android:id="@+id/nav_prefs"
-            android:title="@string/nav_item5"
-            android:icon="@drawable/ic_settings_white_24dp"/>
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_item5" />
 
         <item
             android:id="@+id/nav_logout"
-            android:title="@string/nav_item6"
-            android:icon="@drawable/ic_log_out_white_24dp"/>
+            android:icon="@drawable/ic_log_out_white_24dp"
+            android:title="@string/nav_item6" />
+
     </group>
 </menu>
