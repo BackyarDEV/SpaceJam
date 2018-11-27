@@ -1,8 +1,9 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.backyardev.spacejam.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
             startActivity( i );
             finish();
         } else {
-            Intent i = new Intent( SplashActivity.this, RegisterActivity.class );
+            Intent i = new Intent( SplashActivity.this, LoginActivity.class );
             startActivity( i );
             finish();
         }

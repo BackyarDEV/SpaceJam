@@ -1,4 +1,4 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.backyardev.spacejam.util.Photo;
+import com.backyardev.spacejam.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.Nullable;
@@ -51,7 +53,7 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.profile_fragment, container, false );
+        View view = inflater.inflate( R.layout.fragment_profile, container, false );
 
         return view;
     }

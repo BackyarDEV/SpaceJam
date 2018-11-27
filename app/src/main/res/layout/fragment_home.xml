@@ -5,12 +5,18 @@
     android:background="@color/colorAccent"
     android:theme="@style/AppTheme">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/homeSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Home Fragment is under construction"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textAlignment="center"
-        android:layout_gravity="center"/>
+        android:gravity="center"
+        />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.util;
 
 class Like {
     private String user_id;

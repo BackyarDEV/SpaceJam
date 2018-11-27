@@ -4,7 +4,6 @@
     package="com.backyardev.spacejam">
 
     <compatible-screens>
-
         <screen
             android:screenDensity="xhdpi"
             android:screenSize="small" />
@@ -14,7 +13,6 @@
         <screen
             android:screenDensity="xxxhdpi"
             android:screenSize="small" />
-
         <screen
             android:screenDensity="xhdpi"
             android:screenSize="normal" />
@@ -24,7 +22,6 @@
         <screen
             android:screenDensity="xxxhdpi"
             android:screenSize="normal" />
-
     </compatible-screens>
 
     <application
@@ -35,22 +32,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Splash"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".activities.LoginActivity" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.SettingsActivity"/>
     </application>
-
 
 </manifest>

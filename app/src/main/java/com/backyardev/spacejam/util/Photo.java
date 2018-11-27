@@ -1,4 +1,4 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.util;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,9 +7,6 @@ import org.w3c.dom.Comment;
 
 import java.util.List;
 
-/**
- * Created by User on 7/29/2017.
- */
 
 public class Photo implements Parcelable {
 

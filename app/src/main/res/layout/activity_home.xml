@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:theme="@style/AppTheme"
-    tools:context=".HomeActivity">
+    tools:context=".activities.HomeActivity">
 
     <FrameLayout
         android:id="@+id/home_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <include layout="@layout/fragment_home"/>
 
     </FrameLayout>
 
@@ -31,7 +30,7 @@
             android:foreground="@drawable/ripple"
             android:minHeight="45dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:fabAlignmentMode="center"
+            app:fabAlignmentMode="end"
             app:fabCradleRoundedCornerRadius="16dp"
             app:hideOnScroll="true"
             app:navigationIcon="@drawable/ic_menu_white_24dp"

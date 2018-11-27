@@ -1,4 +1,4 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +7,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.backyardev.spacejam.util.Photo;
+import com.backyardev.spacejam.R;
+import com.backyardev.spacejam.fragments.BottomNavigationDrawerFragment;
+import com.backyardev.spacejam.fragments.DiscoverFragment;
+import com.backyardev.spacejam.fragments.HomeFragment;
+import com.backyardev.spacejam.fragments.NotificationFragment;
+import com.backyardev.spacejam.fragments.ProfileFragment;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -14,8 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import static com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_END;
 
 public class HomeActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener {
 
@@ -29,8 +34,8 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
     private static final String TAG_DISCOVER = "discover";
     private static final String TAG_NOTIFICATIONS = "notifications";
     public static String CURRENT_TAG = TAG_HOME;
-    private int menuItemIndex = 0;
-    int mode = 0;
+    private Fragment fragment;
+    HomeFragment homeFragment = new HomeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +47,17 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
         bottomAppBar = findViewById( R.id.bottom_app_bar );
         setSupportActionBar( bottomAppBar );
 
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace( R.id.home_container,homeFragment,TAG_HOME ).commit();
+
         fab.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (CURRENT_TAG.equals( "home" )) {
+                if (CURRENT_TAG.equals( TAG_HOME )) {
                     newPostFabClick();
                 } else {
-                    mode=0;
-                    fabModeChanger();
                     CURRENT_TAG = TAG_HOME;
-                    menuItemIndex = 0;
-                    loadHomeFragment();
+                    loadHomeFragment( fragment, CURRENT_TAG );
                 }
             }
         } );
@@ -67,6 +72,9 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.bottom_app_home:
+                        homeButtonAction();
+                        break;
                     case R.id.bottom_app_profile:
                         profileBtnAction();
                         break;
@@ -85,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
                 }
                 item.setChecked( true );
 
-                loadHomeFragment();
+                loadHomeFragment( fragment, CURRENT_TAG );
 
                 return true;
             }
@@ -93,47 +101,43 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
     }
 
     private void newPostFabClick() {
-        Toast.makeText( this,"New Post under construction",Toast.LENGTH_SHORT).show();
+        Toast.makeText( this, "New Post under construction", Toast.LENGTH_SHORT ).show();
     }
 
-
-    private Fragment getHomeFragment() {
-        switch (menuItemIndex) {
-            case 0:
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
-            case 1:
-                ProfileFragment photosFragment = new ProfileFragment();
-                return photosFragment;
-            case 2:
-                DiscoverFragment discoverFragment = new DiscoverFragment();
-                return discoverFragment;
-            case 3:
-                NotificationFragment notificationFragment = new NotificationFragment();
-                return notificationFragment;
-
-            default:
-                return new HomeFragment();
-        }
+    private void homeButtonAction() {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById( R.id.home_container );
+        CURRENT_TAG = TAG_HOME;
+        if (!(currentFragment instanceof HomeFragment)) {
+            fragment = homeFragment;
+        } else fragment = null;
     }
+
     private void profileBtnAction() {
-        mode=1;
-        fabModeChanger();
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById( R.id.home_container );
         CURRENT_TAG = TAG_PROFILE;
-        menuItemIndex = 1;
+        if (!(currentFragment instanceof ProfileFragment)) {
+            ProfileFragment profileFragment = new ProfileFragment();
+            fragment = profileFragment;
+        } else fragment = null;
     }
+
+
     private void notificationBtnAction() {
-        mode=1;
-        fabModeChanger();
-        CURRENT_TAG=TAG_NOTIFICATIONS;
-        menuItemIndex=2;
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById( R.id.home_container );
+        CURRENT_TAG = TAG_NOTIFICATIONS;
+        if (!(currentFragment instanceof NotificationFragment)) {
+            NotificationFragment notificationFragment = new NotificationFragment();
+            fragment = notificationFragment;
+        } else fragment = null;
     }
 
     private void discoverBtnAction() {
-        mode=1;
-        fabModeChanger();
-        CURRENT_TAG=TAG_DISCOVER;
-        menuItemIndex=3;
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById( R.id.home_container );
+        CURRENT_TAG = TAG_DISCOVER;
+        if (!(currentFragment instanceof DiscoverFragment)) {
+            DiscoverFragment discoverFragment = new DiscoverFragment();
+            fragment = discoverFragment;
+        } else fragment = null;
     }
 
 
@@ -146,34 +150,21 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
     @Override
     public void onGridImageSelected(Photo photo, int activityNumber) {
         Log.d( TAG_LOG, "onGridImageSelected: selected an image gridview: " + photo.toString() );
-
 //        ViewPostFragment bottomNavBarFragment = new ViewPostFragment();
 //        Bundle args = new Bundle();
 //        args.putParcelable(getString(R.string.photo), photo);
 //        args.putInt(getString(R.string.activity_number), activityNumber);
-//
-//        bottomNavBarFragment.setArguments(args);
-//
-//        FragmentTransaction transaction  = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.container, bottomNavBarFragment);
-//        transaction.addToBackStack(getString(R.string.view_post_fragment));
-//        transaction.commit();
     }
 
-    protected void loadHomeFragment() {
-        Fragment fragment = getHomeFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations( android.R.anim.fade_in, android.R.anim.fade_out );
-        fragmentTransaction.replace( R.id.home_container, fragment, CURRENT_TAG );
-        fragmentTransaction.commitAllowingStateLoss();
-    }
-    private void fabModeChanger(){
-
-            bottomAppBar.setFabAlignmentMode( mode );
-            if(mode==1){
-            fab.setImageDrawable( getDrawable( R.drawable.ic_arrow_back_black_24dp ) );
-        } else if(mode ==0){
-            fab.setImageDrawable( getDrawable( R.drawable.ic_add_black_24dp ) );
+    protected void loadHomeFragment(Fragment newFragment, String TAG) {
+        if (newFragment != null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.setCustomAnimations( android.R.anim.fade_in, android.R.anim.fade_out );
+            fragmentTransaction.replace( R.id.home_container, newFragment, CURRENT_TAG );
+            if (getSupportFragmentManager().findFragmentByTag( TAG ) == null) {
+                fragmentTransaction.addToBackStack( TAG );
+            }
+            fragmentTransaction.commit();
         }
     }
 }

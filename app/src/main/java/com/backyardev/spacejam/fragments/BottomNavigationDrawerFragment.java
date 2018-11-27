@@ -1,6 +1,5 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.fragments;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,10 +7,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.backyardev.spacejam.activities.LoginActivity;
+import com.backyardev.spacejam.R;
+import com.backyardev.spacejam.activities.SettingsActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,14 +27,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
-    NavigationView navigation_view;
-    ImageView close_imageView;
-    CircleImageView imageView;
+    private NavigationView navigation_view;
+    private ImageView close_imageView;
+    private CircleImageView circleImageView;
     private static final String TAG_HOME = "home";
     private static final String TAG_PROFILE = "profile";
     private static final String TAG_DISCOVER = "discover";
     private static final String TAG_NOTIFICATIONS = "notifications";
-    private static final String TAG_SETTING = "settings";
 
     @Nullable
     @Override
@@ -42,34 +42,15 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment im
         View view = inflater.inflate( R.layout.fragment_bottom_sheet, container, false );
         navigation_view = view.findViewById( R.id.navigation_view );
         close_imageView = view.findViewById( R.id.close_imageView );
-        imageView = view.findViewById( R.id.imageView );
-        close_imageView.setOnClickListener( this );
-        imageView.setOnClickListener( this );
-        disableNavigationViewScrollbars( navigation_view );
-
+        circleImageView = view.findViewById( R.id.imageView );
         return view;
-
-    }
-
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = new BottomSheetDialog( requireContext(), getTheme() );
-
-        return dialog;
-    }
-
-    private void disableNavigationViewScrollbars(NavigationView navigationView) {
-        if (navigationView != null) {
-            NavigationMenuView navigationMenuView = (NavigationMenuView) navigationView.getChildAt( 0 );
-            if (navigationMenuView != null) {
-                navigationMenuView.setVerticalScrollBarEnabled( false );
-            }
-        }
     }
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated( savedInstanceState );
+        close_imageView.setOnClickListener( this );
+        circleImageView.setOnClickListener( this );
         navigation_view.setNavigationItemSelectedListener( new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -107,8 +88,8 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment im
     }
 
     private void homeClick() {
-       HomeFragment fragment = new HomeFragment();
-       getFragment( fragment,TAG_HOME );
+        HomeFragment fragment = new HomeFragment();
+        getFragment( fragment, TAG_HOME );
     }
 
     private void profileClick() {
@@ -122,9 +103,9 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment im
     }
 
     private void preferenceClick() {
-        SettingsFragment fragment = new SettingsFragment();
-        getFragment( fragment, TAG_SETTING );
-
+        Intent i = new Intent( getActivity(), SettingsActivity.class );
+        startActivity( i );
+        this.dismiss();
     }
 
     private void discoverClick() {
@@ -132,13 +113,15 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment im
         getFragment( fragment, TAG_DISCOVER );
     }
 
-
-    public void getFragment(Fragment fragment, String TAG) {
+    private void getFragment(Fragment fragment, String TAG) {
         FragmentTransaction fragmentTransaction = Objects.requireNonNull( getActivity() ).
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations( android.R.anim.fade_in, android.R.anim.fade_out );
         fragmentTransaction.replace( R.id.home_container, fragment, TAG );
-        fragmentTransaction.commitAllowingStateLoss();
+        if (getActivity().getSupportFragmentManager().findFragmentByTag(TAG) == null) {
+            fragmentTransaction.addToBackStack(TAG);
+        }
+        fragmentTransaction.commit();
         this.dismiss();
 
     }
@@ -148,8 +131,10 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment im
         switch (view.getId()) {
             case R.id.close_imageView:
                 this.dismiss();
+                break;
             case R.id.imageView:
                 profileClick();
+                break;
         }
     }
 }

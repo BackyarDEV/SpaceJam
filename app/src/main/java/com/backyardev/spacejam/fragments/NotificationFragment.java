@@ -1,10 +1,11 @@
-package com.backyardev.spacejam;
+package com.backyardev.spacejam.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.backyardev.spacejam.R;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -15,9 +16,6 @@ public class NotificationFragment extends Fragment {
     private static final String TAG = "NotificationFragment";
 
 
-    public interface OnGridImageSelectedListener {
-        void onGridImageSelected(Photo photo, int activityNumber);
-    }
 
 
     private FirebaseAuth mAuth;
