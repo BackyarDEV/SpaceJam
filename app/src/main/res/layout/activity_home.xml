@@ -27,7 +27,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="bottom"
             android:backgroundTint="@color/colorPrimary"
-            android:foreground="@drawable/ripple"
+            android:foreground="@drawable/accent_ripple"
             android:minHeight="45dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:fabAlignmentMode="end"

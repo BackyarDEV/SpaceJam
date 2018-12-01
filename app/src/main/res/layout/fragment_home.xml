@@ -9,14 +9,7 @@
         android:id="@+id/homeSwipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment is under construction"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        />
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

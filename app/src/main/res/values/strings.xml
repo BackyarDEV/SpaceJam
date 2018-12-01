@@ -23,4 +23,10 @@
     <string name="cd_pro_pic">profile picture</string>
     <string name="bottom_sheet_name">Your Name Probably</string>
     <string name="bottom_sheet_email">Your Profile Desription</string>
+    <string name="settings">Settings</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="calling_activity">calling_activity</string>
+    <string name="profile_settings_fragment">ProfileSettingsFragment</string>
+    <string name="edit_your_profile">Edit your profile</string>
+    <string name="edit_profile_fragment">ProfileSettingsFragment</string>
 </resources>
