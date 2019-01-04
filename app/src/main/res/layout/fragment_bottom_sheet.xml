@@ -51,8 +51,9 @@
         android:id="@+id/imageView"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:foregroundGravity="center"
         android:layout_marginStart="24dp"
-        android:background="@drawable/ic_account_circle_512dp"
+        android:background="@drawable/img_dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 

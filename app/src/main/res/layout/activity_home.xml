@@ -45,6 +45,8 @@
             app:layout_anchor="@id/bottom_app_bar"
             app:rippleColor="@color/colorPrimary" />
 
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

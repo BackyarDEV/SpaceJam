@@ -11,5 +11,6 @@
     <color name="error_color">#C62828</color>
     <color name="hint_color_active">#00897B</color>
     <color name="hint_color_inactive">#9E9E9E</color>
+    <color name="dim_background">#60000000</color>
 
 </resources>

@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fullNameTIL">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/eMailText"
+                android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
@@ -101,7 +101,7 @@
                 android:id="@+id/PassText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/MyStyle.InputLayout"
+                android:theme="@style/MyTheme.EditText"
                 android:fontFamily="sans-serif"
                 android:hint="@string/password"
                 android:inputType="textPassword"

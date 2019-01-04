@@ -92,7 +92,6 @@
             android:layout_margin="25dp"
             android:textAllCaps="true"
             android:fontFamily="sans-serif"
-            android:onClick="login"
             android:text="@string/login"
             android:textColor="@color/colorAccent"
             app:rippleColor="@color/colorAccent"
